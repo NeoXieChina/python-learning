@@ -1,0 +1,55 @@
+# 定义一个______变量
+
+global_var = "I am a global variable"
+
+
+def outer_function():
+    
+
+# 定义一个______变量
+
+    
+	local_var = "I am a local variable in outer_function"
+    
+    
+	def inner_function():
+        
+		# 在嵌套函数中访问______变量
+        
+		nonlocal local_var
+        
+		local_var = "I am modified in inner_function"
+       
+		print("Inside inner_function:", local_var)
+    
+    
+	inner_function()
+   
+	print("Inside outer_function:", local_var)
+
+
+
+def another_function():
+
+	# 在另一个函数中访问_____变量
+    
+	global global_var
+    
+	global_var = "I am modified in another_function"
+    
+	print("Inside another_function:", global_var)
+
+
+
+# 调用函数
+
+
+outer_function()
+
+print("Global variable after outer_function:", global_var)
+
+
+
+another_function()
+
+print("Global variable after another_function:", global_var)

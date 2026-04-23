@@ -1,0 +1,32 @@
+1. 问题：编写函数，接收任意多的实数，
+返回一个元组，其中第一个元素为所有参数的平均值，其他元素为所有参数中大于平均值的实数。
+Hint:	avg = sum(variable)/len(variable)
+	list_above_avg = [i for i in variable if > avg]	
+
+2. 问题：编写函数，提取短语的首字母缩略词。缩略词是一个单词，是从短语中每一个单词取首字母组合而成的，
+且要求大写。例如：“very important person”的缩略词是“VIP”。
+Hint:	list_words = s.split()
+	return [s[0].upper() for x in list_words]
+
+3. 问题：小明做打字测试，请编写程序计算小明输入字符串的准确率。【分析】假设原始字符串为origin，
+小明输入的字符串为userInput，如果两个字符串的长度不一致，提示小明重新输入，
+如果长度一致，进行字符匹配。准确率为正确的字符个数除以字符总个数 。
+
+4. 问题：输入一段英文文本，统计出现频率最高的前10个单词（去除of，a，the等无意义词语）。
+
+待处理的英文文本如下：“I have a dream today!I have a dream that one day everyvalley shall 
+be exalted, and every hill and mountain shall be made low, the rough places will be made plain, 
+and the crooked places will be made straight; "and the glory of the Lord shall be revealed and all 
+flesh shall see it together." This is our hope, and this is the faith that I go back to the South with.
+With this faith, we will be able to hew out of the mountain of despair a stone of hope. With this faith, 
+we will be able to transform the jangling discords of our nation into a beautiful symphony of brotherhood. 
+With this faith, we will be able to work together, to pray together, to struggle together, to go to jail together, 
+to stand up for freedomtogether, knowing that we will be free one day.”
+
+分析：观察这段文本，字母有大写有小写，还有一些标点符号，
+因此在统计单词出现频率之前我们需要先解决文本中大小写和标点符号的问题。
+接下来，编写函数wordFreq统计单词出现频率。#去除无意义单词，字典转换为列表部分代码
+excludes={'the', 'and', 'to', 'of', 'a', 'be'}
+	for word in excludes:
+		del(counts[words])
+	items = list(counts.items())

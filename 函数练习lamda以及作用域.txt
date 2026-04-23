@@ -1,0 +1,37 @@
+lamda函数：
+1.利用lambda函数输出列表中所有的负数。
+参考列表：list = [3, 5, -7, 4, -1, 0, -9]
+
+2.利用lambda函数对字典元素按值或按键排序。
+参考字典：dict_data = {"化1704":33, "化1702":28, "化1701":34, "化1703":30}
+
+变量的作用域：
+1.在每个#之后说明该行代码的意义。
+
+global_var = "I am a global variable"	# 
+
+def outer_function():		# 
+
+    local_var = "I am a local variable in outer_function"
+    
+    def inner_function():	# 
+ 
+        nonlocal local_var
+        local_var = "I am modified in inner_function"
+        print("Inside inner_function:", local_var)
+    
+    inner_function()	#
+    print("Inside outer_function:", local_var)	#
+
+def another_function():	    # 
+
+    global global_var
+    global_var = "I am modified in another_function"
+    print("Inside another_function:", global_var)
+
+
+outer_function()	#
+print("Global variable after outer_function:", global_var)	#
+
+another_function()		#
+print("Global variable after another_function:", global_var)	#
