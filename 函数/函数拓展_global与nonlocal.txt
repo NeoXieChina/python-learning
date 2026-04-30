@@ -1,0 +1,66 @@
+在Python中，global和nonlocal关键字都用于在函数内部声明变量的作用域，但它们的作用和适用场景有所不同。以下是对这两个关键字的详细解释和示例。
+1. global 关键字
+global 关键字用于在函数内部声明一个变量为全局变量。这意味着你可以在函数内部访问和修改全局变量。
+使用场景
+当你需要在函数内部修改全局变量时，必须使用global关键字。
+
+示例代码:
+
+# 定义一个全局变量
+global_var = "I am a global variable"
+
+def modify_global():
+    global global_var  # 声明 global_var 为全局变量
+    global_var = "I am modified in modify_global"
+
+print("Before modification:", global_var)
+modify_global()
+print("After modification:", global_var)
+
+输出结果
+
+'''
+Before modification: I am a global variable
+After modification: I am modified in modify_global
+'''
+
+2. nonlocal 关键字
+nonlocal 关键字用于在嵌套函数中声明一个变量为外层函数的局部变量。这意味着你可以在嵌套函数中访问和修改外层函数的局部变量。
+使用场景
+当你需要在嵌套函数中修改外层函数的局部变量时，必须使用nonlocal关键字。
+
+示例代码:
+
+def outer_function():
+    local_var = "I am a local variable in outer_function"
+    
+    def inner_function():
+        nonlocal local_var  # 声明 local_var 为外层函数的局部变量
+        local_var = "I am modified in inner_function"
+        print("Inside inner_function:", local_var)
+    
+    inner_function()
+    print("Inside outer_function:", local_var)
+
+outer_function()
+
+输出结果:
+
+'''
+Inside inner_function: I am modified in inner_function
+Inside outer_function: I am modified in inner_function
+'''
+
+区别总结
+作用域：
+global：用于声明全局变量，使函数内部可以访问和修改全局变量。
+nonlocal：用于声明外层函数的局部变量，使嵌套函数可以访问和修改外层函数的局部变量。
+适用范围：
+global：适用于模块级别的全局变量。
+nonlocal：适用于嵌套函数中的局部变量。
+使用场景：
+global：当你需要在函数内部修改全局变量时使用。
+nonlocal：当你需要在嵌套函数中修改外层函数的局部变量时使用。
+注意事项
+避免滥用：虽然global和nonlocal关键字提供了灵活性，但过度使用可能导致代码难以理解和维护。尽量减少对全局变量的依赖，尽量使用函数参数和返回值来传递数据。
+清晰的变量命名：使用清晰的变量命名可以帮助你更好地理解变量的作用域，避免混淆。
